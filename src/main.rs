@@ -105,7 +105,14 @@ fn quicksort<T: PartialOrd + std::fmt::Debug>(v: &mut [T]) {
     }
 
     // Now choose a pivot and do the organizing.
-    
+    let mut smaller = 0;
+    for i in 1..length {
+        if v[i] < v[0] {
+            // Swap the two elements
+            v.swap(smaller, i);
+            smaller += 1;
+        }
+    }
     // ...
 
     let smaller = 0; // Totally wrong – you should fix this.
@@ -184,7 +191,19 @@ fn merge<T: PartialOrd + std::marker::Copy + std::fmt::Debug>(xs: Vec<T>, ys: Ve
 
     // This is totally wrong and will not sort. You should replace it
     // with something useful. :)
-    xs
+    let mut result = Vec::<T>::new();
+    let mut i = 0;
+    let mut j = 0;
+
+    while i < xs.len() && j < ys.len() {
+        if xs[i] < ys[j] {
+            result.push(xs[i]);
+            i += 1;
+        } else {
+            result.push(ys[j]);
+            j += 1;
+        }
+    }
 }
 
 fn is_sorted<T: PartialOrd>(slice: &[T]) -> bool {
