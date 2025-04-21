@@ -214,8 +214,8 @@ fn merge<T: PartialOrd + std::marker::Copy + std::fmt::Debug>(xs: Vec<T>, ys: Ve
         j += 1;
     }
 
-    result;
-    
+    result
+
 }
 
 fn is_sorted<T: PartialOrd>(slice: &[T]) -> bool {
