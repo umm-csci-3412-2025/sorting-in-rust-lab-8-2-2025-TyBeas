@@ -108,9 +108,11 @@ fn quicksort<T: PartialOrd + std::fmt::Debug>(v: &mut [T]) {
     let mut smaller = 0;
     for i in 1..length {
         if v[i] < v[0] {
-            // Swap the two elements
-            v.swap(smaller, i);
+            // We need to swap the element at
+            // i with the element at smaller, and
+            // then increment smaller.
             smaller += 1;
+            v.swap(smaller, i);
         }
     }
     // ...
