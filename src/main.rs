@@ -115,7 +115,7 @@ fn quicksort<T: PartialOrd + std::fmt::Debug>(v: &mut [T]) {
     }
     // ...
 
-    v.swao(0, smaller); // Totally wrong – you should fix this.
+    v.swap(0, smaller); // Totally wrong – you should fix this.
 
     // Sort all the items < pivot
     quicksort(&mut v[0..smaller]);
